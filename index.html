@@ -45,25 +45,25 @@
         width: 20vw;
       }
     </style>
-    <link rel="stylesheet" href="../../libs/webxr/common/common.css"/>
+    <link rel="stylesheet" href="./libs/webxr/common/common.css"/>
 
     <!-- THREE.JS (3D engine): -->
-    <script src="../../libs/three/v95/three.js"></script>
+    <script src="./libs/three/v95/three.js"></script>
 
     <!-- Stuffs from WebXR polyfill - see https://github.com/mozilla/webxr-polyfill -->
-    <script src="../../libs/webxr/stats.js"></script>
-    <script type="module" src="../../libs/webxr/polyfill/XRPolyfill.js"></script>
-    <script nomodule src="../../libs/webxr/dist/webxr-polyfill.js"></script>
-    <script src="../../libs/webxr/common/common.js"></script>
+    <script src="./libs/webxr/stats.js"></script>
+    <script type="module" src="./libs/webxr/polyfill/XRPolyfill.js"></script>
+    <script nomodule src="./libs/webxr/dist/webxr-polyfill.js"></script>
+    <script src="./libs/webxr/common/common.js"></script>
 
     <!-- WebAR.rocks.object and its helper: -->
-    <script src="../../dist/WebARRocksObject.js"></script>
-    <script src="../../helpers/WebARRocksWebXRHelper.js"></script>
+    <script src="./dist/WebARRocksObject.js"></script>
+    <script src="./helpers/WebARRocksWebXRHelper.js"></script>
 
     <!-- include specific stuffs required for the coffee 3D animation: -->
-    <script src="../../libs/three/v95/TeapotBufferGeometry.js"></script>
-    <script src="../../libs/tween/tween.min.js"></script>
-    <script src="./CoffeeAnimation.js"></script>
+    <script src="./libs/three/v136/TeapotGeometry.js"></script>
+    <script src="./libs/tween/tween.min.js"></script>
+    <script src="./demos/webxrCoffee/CoffeeAnimation.js"></script>
     
   </head>
   <body>
@@ -118,7 +118,7 @@
           const self = this;
           WebARRocksWebXRHelper.init({
             DOMCanvasParent: document.body,
-            neuralNet: '../../neuralNets/NN_OBJ4LIGHT_0.json',
+            neuralNet: './neuralNets/NN_OBJ4LIGHT_0.json',
             nDetections: 5,
             visionDoneCallback: self.handleVisionDone.bind(self),
             isDebugRender: false
