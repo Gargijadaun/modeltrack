@@ -1,54 +1,39 @@
 <!DOCTYPE html>
-<htmL>
-  <head>
-    <title>AR Coffee offered by WebAR.rocks</title>
-    <meta charset='utf-8'/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR.js Object Tracking</title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.12/aframe/build/aframe-ar-nft.js"></script>
+</head>
+<body>
+    <a-scene
+        vr-mode-ui="enabled: false"
+        embedded
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+        <a-nft
+            type="nft"
+            url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance=".01"
+            smoothThreshold="5">
+            <!-- Add your 3D model here -->
+            <a-entity
+                scale="0.1 0.1 0.1"
+                rotation="-90 0 0"
+                position="0 0 0"
+                gltf-model="./scene.gltf">
+            </a-entity>
+        </a-nft>
 
-    <!-- WebAR.rocks.object LIBRARY: -->
-    <script src='./dist/WebARRocksObject.js'></script>
+        <!-- Add additional entities or elements here as needed -->
 
-    <!-- HELPER TO GET THE CAMERA VIDEO STREAM: -->
-    <script src='./helpers/WebARRocksMediaStreamAPIHelper.js'></script>
-
-    <!-- THIRD PARTY LIBRARIES: -->
-    <script src='./libs/three/v136/three.js'></script>
-    <script src='./libs/tween/tween.min.js'></script>
-
-    <!-- THREE.JS HELPER: -->
-    <script src='./helpers/WebARRocksObjectThreeHelper.js'></script>
-
-    <!-- STABILIZER: -->
-    <script src='./helpers/stabilizers/WebARRocksThreeStabilizer.js'></script>
-
-    <!-- AR COFFEE ANIMATION: -->
-    <script src='./demos/webxrCoffee/CoffeeAnimation.js'></script>
-    <script src='./libs/three/v136/TeapotGeometry.js'></script>
-
-    <!-- SHARE BUTTONS -->
-    <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5d699c2316b81b0012138a7b&product=inline-share-buttons' async='async'></script>
-
-    <!-- MAIN SCRIPT: -->
-    <script src='./demos/threejs/ARCoffee/main.js'></script>
-    
-    <link rel='stylesheet' href='./demos/threejs/ARCoffee/style.css' type='text/css'/>
-    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <canvas id='ARCanvas'></canvas>
-    <canvas id='threeCanvas'></canvas>
-    <video id='webcamVideo'></video>
-
-    <div class='userManual' id='userManual'>
-      The coffee is ready!<br/>
-      In which mug it should be poured?
-    </div>
-
-    <div class='notice'>
-      <div class='noticeText'>
-        AR Coffee offered by <a href='https://webar.rocks' target='_blank'>WebAR.rocks</a>
-      </div>
-      <div class="sharethis-inline-share-buttons"></div>
-    </div>
-  </body>
-</htmL>
+        <!-- Camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
